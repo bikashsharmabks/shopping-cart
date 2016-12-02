@@ -149,6 +149,12 @@ a:hover {
 	color: #666666; 
 }
 
+.item-price-bigger {
+	font-weight: 500;
+	font-size: 28px;
+	color: #666666; 
+}
+
 .item-qty-text {
 	text-align: center; 
 	width: 50px;
