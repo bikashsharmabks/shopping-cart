@@ -11,5 +11,7 @@
 
 `npm start`
 
+[http://localhost:8003](http://localhost:8003)
+
 **Shopping cart Live and hosted @**
 [http://shopping-nitro.surge.sh](http://shopping-nitro.surge.sh "Shopping Cart Nitro")
