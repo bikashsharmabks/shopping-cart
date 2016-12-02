@@ -37,14 +37,21 @@
 				        	<input class="item-qty-text" type="number" min="1">
 				        </div>
 				        
-				        <div class="col-md-12 col-sm-12 visible-xs margin-top-10 item-price">
-				        	<sup ng-bind="product.c_currency">$</sup>
-				        	<span ng-bind="product.p_price | number: 2"></span>
+				        <div class="col-md-12 col-sm-12 visible-xs margin-top-10">
+				        	<span class="item-price-strike" ng-if="product.p_originalprice !== product.p_price">
+				        		<sup ng-bind="product.c_currency">$</sup>
+				        		<span ng-bind="product.p_originalprice | number: 2"></span>
+				        	</span>
+
+				        	<span class="item-price">
+				        		<sup ng-bind="product.c_currency">$</sup>
+				        		<span ng-bind="product.p_price | number: 2"></span>
+				        	</span>
 				        </div>
 						
 						<div class="col-md-12 col-sm-12 hidden-xs margin-top-30 item-action">
-							<a href="#/">EDIT</a> | 
-							<a href="#/">X REMOVE</a> |
+							<a href='#/' ng-click="edit(product)">EDIT</a> | 
+							<a href="#/" ng-click="remove(product)">X REMOVE</a> |
 							<a href="#/">SAVE FOR LATER</a>
 						</div>			
 
@@ -65,10 +72,17 @@
 	        <div class="col-md-1 col-sm-1">
 	        	<input class="item-qty-text" type="number" min="1">
 	        </div>
-	        <div class="col-md-2 col-sm-2 hidden-xs item-price text-right">
-	        	<sup ng-bind="product.c_currency">$</sup>
-	        	<span ng-bind="product.p_price| number: 2"></span>
-	        </div>
+	        <div class="col-md-2 col-sm-2 hidden-xs text-right">
+	        	<div class="item-price-strike" ng-if="product.p_originalprice !== product.p_price">
+	        		<sup ng-bind="product.c_currency">$</sup>
+	        		<span ng-bind="product.p_originalprice | number: 2"></span>
+	        	</div>
+
+	        	<div class="item-price">
+	        		<sup ng-bind="product.c_currency">$</sup>
+	        		<span ng-bind="product.p_price | number: 2"></span>
+	        	</div>
+		     </div>
     	</div>
     </div>
     <!-- Product Section end -->
@@ -107,7 +121,7 @@
 		       	<div class="form-inline text-mq-right">
 				  <div class="form-group">
 				    <label class="sr-only" for="code"></label>
-				    <input type="password" class="form-control" id="code">
+				    <input type="text" class="form-control" id="code" ng-model="vm.billing.promotion_code">
 				  </div>
 				  <button type="submit" class="btn btn-default">APPLY</button>
 				</div>
@@ -125,20 +139,20 @@
 		       
 		       	<div class="col-md-5 col-xs-5 item-price text-right">
 				  <sup>$</sup>
-				  <span>100</span>
+				  <span ng-bind="vm.billing.sub_total | number: 2">0.00</span>
 				</div>
 	        </div>
 
 	        <div class="row margin-top-10">
 		       	<div class="col-md-7 col-xs-7 text-left">
 		       		<h5 class="capitalize">
-		       			Promotion Code <strong>XXX</strong> Applied
+		       			Promotion Code <strong ng-bind="vm.billing.promotion_code">XXX</strong> Applied
 					</h5>
 		       	</div>
 		       
 		       	<div class="col-md-5 col-xs-5 item-price text-right">
 				  <sup>$</sup>
-				  <span>100</span>
+				  <span ng-bind="vm.billing.promotion_total | number: 2">0.00</span>
 				</div>
 	        </div>
 
@@ -168,7 +182,7 @@
 		       
 		       	<div class="col-md-5 col-xs-5 item-price-bigger text-right">
 				  <sup>$</sup>
-				  <span>100</span>
+				  <span ng-bind="vm.billing.total | number: 2">0.00</span>
 				</div>
 	        </div>
 

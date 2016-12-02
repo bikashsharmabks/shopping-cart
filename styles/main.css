@@ -149,6 +149,11 @@ a:hover {
 	color: #666666; 
 }
 
+.item-price-strike {
+	text-decoration: line-through;
+	font-size: 18px;
+}
+
 .item-price-bigger {
 	font-weight: 500;
 	font-size: 28px;
