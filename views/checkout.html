@@ -1,0 +1,75 @@
+<div class="col-md-12">
+    
+    <h2 class="capitalize">Your Shopping Cart</h2>
+    
+    <div class="row header capitalize">
+        <div class="col-md-8 col-sm-8">{{3}} Items</div>
+        <div class="col-md-1 col-sm-1 hidden-xs text-center">Size</div>
+        <div class="col-md-1 col-sm-1 hidden-xs text-center">Qty</div>
+        <div class="col-md-2 col-sm-2 hidden-xs text-right">Price</div>
+    </div>
+
+    <div class="row product-item" ng-repeat="product in vm.products">
+
+        <div class="col-md-8 col-sm-8">
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object" src="{{product.p_image}}">
+                </div>
+                <div class="media-body">
+                    <h5 class="media-heading capitalize" ng-bind="product.p_name">
+					</h5>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">Style #:  
+                        	<span class="capitalize" ng-bind="product.p_style"></span>
+                        </div>
+				        <div class="col-md-12 col-sm-12">Color: 
+				        	<strong ng-bind="product.p_selected_color.name"></strong>
+				    	</div>
+				        
+				        <div class="col-md-12 col-sm-12 visible-xs">Size: 
+				        	<strong class="capatalize" ng-bind="product.p_selected_size.code"></strong>
+				        </div>
+				        
+				        <div class="col-md-12 col-sm-12 visible-xs margin-top-10">
+				        	QTY: 
+				        	<input class="item-qty-text" type="number" min="1">
+				        </div>
+				        
+				        <div class="col-md-12 col-sm-12 visible-xs margin-top-10 item-price">
+				        	<sup ng-bind="product.c_currency">$</sup>
+				        	<span ng-bind="product.p_price | number: 2"></span>
+				        </div>
+						
+						<div class="col-md-12 col-sm-12 hidden-xs margin-top-30 item-action">
+							<a href="#/">EDIT</a> | 
+							<a href="#/">X REMOVE</a> |
+							<a href="#/">SAVE FOR LATER</a>
+						</div>			
+
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 visible-xs margin-top-30 text-center item-action">
+					<a href="#/">EDIT</a> | 
+					<a href="#/">X REMOVE</a> |
+					<a href="#/">SAVE FOR LATER</a>
+				</div>		
+            </div>
+        </div>
+
+        <div class="row hidden-xs text-center">
+	        <div class="col-md-1 col-sm-1">
+	        	<strong class="capitalize" ng-bind="product.p_selected_size.code"></strong>
+	        </div>
+	        <div class="col-md-1 col-sm-1">
+	        	<input class="item-qty-text" type="number" min="1">
+	        </div>
+	        <div class="col-md-2 col-sm-2 hidden-xs item-price text-right">
+	        	<sup ng-bind="product.c_currency">$</sup>
+	        	<span ng-bind="product.p_price| number: 2"></span>
+	        </div>
+    	</div>
+
+    </div>
+
+</div>
