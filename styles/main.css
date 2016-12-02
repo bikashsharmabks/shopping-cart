@@ -171,6 +171,11 @@ a:hover {
 	letter-spacing: 1px;
 }
 
+.media-object {
+	width: 140px;
+	height: 160px;
+}
+
 .media-heading {
 	font-weight: bold;
 }
