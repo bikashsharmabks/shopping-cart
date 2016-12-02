@@ -14,6 +14,10 @@ ProductService.$inject = ['$http'];
 
 function ProductService($http) {
 
+	this.getCart = function() {
+		return $http.get('/mock-items.json');
+	}
+
 	this.getProducts = function() {
 		return $http.get('/mock-items.json');
 	}

@@ -2,6 +2,7 @@
     
     <h2 class="capitalize">Your Shopping Cart</h2>
     
+    <!-- Product Section start -->
     <div class="row header capitalize">
         <div class="col-md-8 col-sm-8">{{3}} Items</div>
         <div class="col-md-1 col-sm-1 hidden-xs text-center">Size</div>
@@ -69,7 +70,128 @@
 	        	<span ng-bind="product.p_price| number: 2"></span>
 	        </div>
     	</div>
-
     </div>
+    <!-- Product Section end -->
+
+    <div class="thick-seperator"></div>
+
+    <!-- Billing Section start -->
+    <div class="row">
+		
+		<div class="col-md-4 col-sm-4 hidden-xs">
+			<div class="row">
+				<strong class="margin-top-10">Need help or have questions?</strong>
+
+				<div class="margin-top-10">Call Customer Service at 
+					<span class="block">1-800-555-555</span>
+				</div>
+
+				<div class="small-link margin-top-10">
+					<a href="#/">Chat with one of our stylist</a>
+				</div>
+
+				<div class="small-link margin-top-10">
+					<a href="#/">See return or exchange policy</a>
+				</div>
+			</div>
+		</div>
+		    
+	    <div class="col-md-8 col-sm-8">
+
+	       	<div class="row checkout-section">
+
+		       	<div class="col-md-5 col-sm-5 capitalize text-mq-left">
+		       		Enter promotion code or Gift Card
+		       	</div>
+		       
+		       	<div class="form-inline text-mq-right">
+				  <div class="form-group">
+				    <label class="sr-only" for="code"></label>
+				    <input type="password" class="form-control" id="code">
+				  </div>
+				  <button type="submit" class="btn btn-default">APPLY</button>
+				</div>
+	        </div>
+
+	        <div class="row seperator"></div>
+
+	        <div class="row margin-top-10">
+
+		       	<div class="col-md-7 col-xs-7 text-left">
+		       		<h5 class="capitalize">
+		       			Sub Total
+					</h5>
+		       	</div>
+		       
+		       	<div class="col-md-5 col-xs-5 item-price text-right">
+				  <sup>$</sup>
+				  <span>100</span>
+				</div>
+	        </div>
+
+	        <div class="row margin-top-10">
+		       	<div class="col-md-7 col-xs-7 text-left">
+		       		<h5 class="capitalize">
+		       			Promotion Code <strong>XXX</strong> Applied
+					</h5>
+		       	</div>
+		       
+		       	<div class="col-md-5 col-xs-5 item-price text-right">
+				  <sup>$</sup>
+				  <span>100</span>
+				</div>
+	        </div>
+
+	        <div class="row margin-top-10 margin-bottom-30">
+		       	<div class="col-md-7 col-xs-7 text-left">
+		       		<h5 class="capitalize">
+		       			Estimated Shipping<sup>*</sup>
+					</h5>
+					<div class="fine-print">You quality for free shipping
+					because your order is over $50</div>
+		       	</div>
+		       
+		       	<div class="col-md-5 col-xs-5 text-right">
+				  FREE
+				</div>
+	        </div>
+
+	        <div class="row seperator"></div>
+
+	        <div class="row margin-top-10 margin-bottom-30">
+		       	<div class="col-md-7 col-xs-7 text-left">
+		       		<h4 class="capitalize">
+		       			Estimated Total
+					</h4>
+					<div class="fine-print">Tax will be applied during checkout</div>
+		       	</div>
+		       
+		       	<div class="col-md-5 col-xs-5 item-price text-right">
+				  <sup>$</sup>
+				  <span>100</span>
+				</div>
+	        </div>
+
+	        <div class="row thick-seperator"></div>
+
+	        <div class="row margin-top-10 margin-bottom-30">
+
+		       	<div class="text-mq-right">
+		       		<span class="underline-link"><a href="#/">CONTINUE SHOPPING</a></span>
+		       		<button type="submit" class="btn btn-primary btn-lg">CHECKOUT</button>
+		       	</div>
+
+		       	<div class="text-mq-right margin-top-10">
+		       		<img src="/images/lock.jpg">
+		       		<span class="letter-spacing">Secure checkout. Shopping is always safe & secure</span>
+		       	</div>
+		       
+	        </div>
+
+	    </div>
+    </div>
+    
+
+    <!-- Billing Section end -->
 
 </div>

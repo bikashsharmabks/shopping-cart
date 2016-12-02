@@ -21,6 +21,10 @@ input {
 	color: #666666; 
 }
 
+label {
+	font-weight: 400;
+}
+
 a:link { 
 	text-decoration: none;
 	color: #666666; 
@@ -44,18 +48,72 @@ a:hover {
   .center-panel {
     padding: 10px 0px;
   }
+
+  .checkout-section {
+    text-align: center;
+  }
+
+  .seperator {
+  	border-bottom: 2px solid #EAEAEA;
+  }
+
+  .text-mq-left {
+  	text-align: center !important;
+  }
+
+  .text-mq-right {
+  	text-align: center !important;
+  	margin: 10px;
+  }
+}
+
+
+.checkout-section {   
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.text-mq-right {
+  	text-align: right;	
+}
+
+.text-mq-left {
+  	text-align: left;	
+}
+
+.block {
+	display: block;
 }
 
 .margin-5 {
 	margin: 5px;
 }
 
+.margin-20 {
+	margin: 20px;	
+}
+
 .margin-top-10 {
-	margin-top: 10px;
+	margin-top: 10px !important;
 }
 
 .margin-top-30 {
 	margin-top: 30px;	
+}
+
+.margin-bottom-30 {
+	margin-bottom: 30px;		
+}
+
+.margin-right-30 {
+	margin-right: 30px;		
+}
+
+.section {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-left: -30px;
+	margin-right: -30px; 
 }
 
 .capitalize {
@@ -66,6 +124,17 @@ a:hover {
 	padding: 10px;
 	border-top: 1px solid #EAEAEA;
 	border-bottom: 3px solid #EAEAEA;
+}
+
+.seperator {
+	border-bottom: 2px solid #EAEAEA;
+	margin: 10px -15px;
+}
+
+.thick-seperator {
+	border-bottom: 1vh solid #EAEAEA;
+	margin: 0px -15px;
+	margin-bottom: 10px;
 }
 
 .product-item {
@@ -93,4 +162,42 @@ a:hover {
 
 .media-heading {
 	font-weight: bold;
+}
+
+.small-link {
+	font-size: 12px;
+	text-decoration: underline;
+}
+
+.underline-link {
+	color: #A7A7A7;
+	text-decoration: underline;	
+	margin: 20px 30px;
+	letter-spacing: 1px;
+}
+
+.letter-spacing {
+	letter-spacing: 1px;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+.btn-primary {
+	background-color: #2368BB;
+	border: 2px solid #0057B7;
+	border-radius: 0px;
+	letter-spacing: 0.8px;
+}
+
+.btn-default {
+	background-color: transparent;
+	border: 2px solid #D7D7D7;
+	border-radius: 0px;
+	letter-spacing: 0.8px;
+}
+
+.fine-print {
+	font-size: 85%;
+	margin-top: -10px;
+	word-spacing: 0.5px;
 }
