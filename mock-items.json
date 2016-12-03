@@ -138,8 +138,8 @@
         "hexcode": ""
     },
     "p_selected_size": {
-        "name": "small",
-        "code": "s"
+        "name": "medium",
+        "code": "m"
     },
     "p_available_options": {
         "colors": [{

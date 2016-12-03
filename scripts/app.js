@@ -12,7 +12,7 @@
      */
 
     angular
-        .module('shoppingCartApp', ['ngRoute'])
+        .module('shoppingCartApp', ['ngRoute','ngAnimate'])
         .config(config);
 
     config.$inject = ['$routeProvider'];

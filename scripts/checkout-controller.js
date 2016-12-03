@@ -10,41 +10,52 @@
 angular.module('shoppingCartApp')
     .controller('CheckoutController', CheckoutController);
 
-CheckoutController.$inject = ['$scope', '$rootScope', 'ProductService'];
+CheckoutController.$inject = ['$scope', '$rootScope', '$timeout', 'ProductService'];
 
-function CheckoutController($scope, $rootScope, ProductService) {
+function CheckoutController($scope, $rootScope, $timeout, ProductService) {
 
     var vm = this;
     vm.products = [];
     vm.showProductModal = false;
     vm.selectedProduct = {};
-    
-    vm.billing = {
-    	'promotion_code': 'AJF10',
-    	'sub_total': 78,
-    	'promotion_total': 25,
-    	'shipping': 'Free',
-    	'total': 53
-    };
+    vm.billing = {};
 
-    ProductService.getProducts().then(function(res) {
-
-    	vm.products = res.data;	
-  
+    ProductService.getChart().then(function(res) {
+        vm.products = res.data;
+        return ProductService.calculateBill(vm.products);
+    }).then(function(billing) {
+        vm.billing = billing;
     }).catch(function(err) {
-    	console.log(err);
+        console.log(err);
     });
 
-
     $scope.edit = function(product) {
-    	vm.selectedProduct = product;
-    	vm.showProductModal = true;
+        vm.selectedProduct = product;
+        vm.showProductModal = true;
     }
 
+    $scope.onProductChanged = function(product) {
+        // calculate bill in digest loop
+        // this may not be required as this shall be replaced with rest api
+        ProductService.calculateBill(vm.products).then(function(billing) {
+            vm.billing = billing;
+            $scope.$apply();
+        }).catch(function(err) {
+            console.log(err);
+        });
+    }
 
     $scope.remove = function(product) {
-    	alert(product.p_name)
-    }
-    
+        var index = vm.products.indexOf(product);
+        vm.products.splice(index, 1);
 
+        // calculate bill in digest loop
+        // this may not be required as this shall be replaced with rest api
+        ProductService.calculateBill(vm.products).then(function(billing) {
+            vm.billing = billing;
+            $scope.$apply();
+        }).catch(function(err) {
+            console.log(err);
+        });
+    }
 }

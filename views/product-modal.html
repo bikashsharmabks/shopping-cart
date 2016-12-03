@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
-            <div class="col-md-5 col-sm-5 text-center">
+            <div class="col-md-5 col-sm-5 text-center margin-bottom-30">
 
                 <div class="thick-seperator" style="margin:0px"></div>
 
@@ -46,14 +46,15 @@
                         ng-options="item.name for item in product.p_available_options.sizes track by item.code" ng-model="product.p_selected_size">
                         </select>
                         
-                        <input class="item-qty-text" type="number" min="1">
+                        <input class="item-qty-text" type="number" min="1"
+                            ng-model="product.p_quantity">
                         
                     </div>
                     
-                    <div class="row margin-top-10">
-                        <button type="submit" class="btn btn-primary">EDIT</button>
+                    <div class="margin-top-10">
+                        <button type="submit" class="btn btn-primary btn-block-50"
+                         ng-click="edit(product)">EDIT</button>
                     </div>
-                    
 
                     <div class="small-link margin-top-10">
                         <a href="#/">Check product details</a>

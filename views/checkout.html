@@ -4,13 +4,13 @@
     
     <!-- Product Section start -->
     <div class="row header capitalize">
-        <div class="col-md-8 col-sm-8">{{3}} Items</div>
+        <div class="col-md-8 col-sm-8">{{vm.products.length}} Items</div>
         <div class="col-md-1 col-sm-1 hidden-xs text-center">Size</div>
         <div class="col-md-1 col-sm-1 hidden-xs text-center">Qty</div>
         <div class="col-md-2 col-sm-2 hidden-xs text-right">Price</div>
     </div>
 
-    <div class="row product-item" ng-repeat="product in vm.products">
+    <div class="row product-item repeat-item" ng-repeat="product in vm.products">
 
         <div class="col-md-8 col-sm-8">
             <div class="media">
@@ -34,7 +34,8 @@
 				        
 				        <div class="col-md-12 col-sm-12 visible-xs margin-top-10">
 				        	QTY: 
-				        	<input class="item-qty-text" type="number" min="1">
+				        	<input class="item-qty-text" type="number" min="1" 
+				        	ng-model="product.p_quantity" ng-disabled="true">
 				        </div>
 				        
 				        <div class="col-md-12 col-sm-12 visible-xs margin-top-10">
@@ -69,7 +70,8 @@
 	        	<strong class="capitalize" ng-bind="product.p_selected_size.code"></strong>
 	        </div>
 	        <div class="col-md-1 col-sm-1">
-	        	<input class="item-qty-text" type="number" min="1">
+	        	<input class="item-qty-text" type="number" min="1"
+	        		ng-model="product.p_quantity" ng-disabled="true">
 	        </div>
 	        <div class="col-md-2 col-sm-2 hidden-xs text-right">
 	        	<div class="item-price-strike" ng-if="product.p_originalprice !== product.p_price">
@@ -206,6 +208,8 @@
     </div>
     <!-- checkout Section end -->
 
-    <product-modal show-modal="vm.showProductModal" product="vm.selectedProduct">
+    <product-modal show-modal="vm.showProductModal" 
+    	selected-product="vm.selectedProduct"
+    	on-product-changed="onProductChanged(vm.selectedProduct)">
 	</product-modal>
 </div>
