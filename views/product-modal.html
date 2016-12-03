@@ -1,0 +1,73 @@
+<div class="modal fade" role="dialog" data-keyboard="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <!-- <h4 class="modal-title">Modal Header</h4> -->
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-md-5 col-sm-5 text-center">
+
+                <div class="thick-seperator" style="margin:0px"></div>
+
+                <div class="row margin-top-30">
+                    <h5 class="media-heading capitalize" ng-bind="product.p_name"></h5>
+                    
+                    <div class="item-price-strike" ng-if="product.p_originalprice !== product.p_price">
+                        <sup ng-bind="product.c_currency">$</sup>
+                        <span ng-bind="product.p_originalprice | number: 2"></span>
+                    </div>
+
+                    <div class="item-price-bigger">
+                        <sup ng-bind="product.c_currency">$</sup>
+                        <span ng-bind="product.p_price | number: 2"></span>
+                    </div>
+
+                    <div class="capitalize margin-top-30" ng-bind="product.p_style">
+                    </div>
+
+                    <div class="margin-top-10">
+                        <span ng-repeat="color in product.p_available_options.colors">
+                            <span class= "color" style="background-color:{{color.hexcode}}"
+                            ng-class="{'selected-color': product.p_selected_color.name == color.name}"
+                            ng-click="onColorSelection(color)">
+                            </span>
+                        </span>
+                        <div>
+                            Color: <strong ng-bind="product.p_selected_color.name"></strong>
+                        </div>
+                    </div>
+
+                    <div class="row margin-top-10 content-center">
+                        
+                        <select class="selectpicker" data-header="Size"
+                        data-style="btn-success"
+                        ng-options="item.name for item in product.p_available_options.sizes track by item.code" ng-model="product.p_selected_size">
+                        </select>
+                        
+                        <input class="item-qty-text" type="number" min="1">
+                        
+                    </div>
+                    
+                    <div class="row margin-top-10">
+                        <button type="submit" class="btn btn-primary">EDIT</button>
+                    </div>
+                    
+
+                    <div class="small-link margin-top-10">
+                        <a href="#/">Check product details</a>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="col-md-7 col-sm-7">
+                <img class="media-object image-large center-block" src="{{product.p_image}}"/>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

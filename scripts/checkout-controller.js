@@ -16,6 +16,8 @@ function CheckoutController($scope, $rootScope, ProductService) {
 
     var vm = this;
     vm.products = [];
+    vm.showProductModal = false;
+    vm.selectedProduct = {};
     
     vm.billing = {
     	'promotion_code': 'AJF10',
@@ -35,7 +37,8 @@ function CheckoutController($scope, $rootScope, ProductService) {
 
 
     $scope.edit = function(product) {
-    	alert(product.p_name)
+    	vm.selectedProduct = product;
+    	vm.showProductModal = true;
     }
 
 

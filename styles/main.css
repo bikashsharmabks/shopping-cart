@@ -44,6 +44,14 @@ a:hover {
 	background-color: #ffffff;
 }
 
+.modal-header {
+	border: 0px !important;
+}
+
+.modal-body {
+	padding-bottom: 30px;
+}
+
 @media (max-width: 600px) {
   .center-panel {
     padding: 10px 0px;
@@ -107,6 +115,10 @@ a:hover {
 
 .margin-right-30 {
 	margin-right: 30px;		
+}
+
+.padding-20 {
+	padding: 20px;
 }
 
 .section {
@@ -176,6 +188,11 @@ a:hover {
 	height: 160px;
 }
 
+.image-large {
+	width: 240px;
+	height: 280px;
+}
+
 .media-heading {
 	font-weight: bold;
 }
@@ -216,4 +233,14 @@ a:hover {
 	font-size: 85%;
 	margin-top: -10px;
 	word-spacing: 0.5px;
+}
+
+.color {
+	padding: 0px 15px; 
+	margin:5px;
+	cursor: pointer;
+}
+.selected-color {
+	border: 3px solid #D7D7D7;
+	padding: 2px 15px;
 }

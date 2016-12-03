@@ -54,12 +54,11 @@
 							<a href="#/" ng-click="remove(product)">X REMOVE</a> |
 							<a href="#/">SAVE FOR LATER</a>
 						</div>			
-
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 visible-xs margin-top-30 text-center item-action">
-					<a href="#/">EDIT</a> | 
-					<a href="#/">X REMOVE</a> |
+					<a href='#/' ng-click="edit(product)">EDIT</a> | 
+					<a href="#/" ng-click="remove(product)">X REMOVE</a> |
 					<a href="#/">SAVE FOR LATER</a>
 				</div>		
             </div>
@@ -205,8 +204,8 @@
 
 	    </div>
     </div>
-    
-
     <!-- checkout Section end -->
 
+    <product-modal show-modal="vm.showProductModal" product="vm.selectedProduct">
+	</product-modal>
 </div>
