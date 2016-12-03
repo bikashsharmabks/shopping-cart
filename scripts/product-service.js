@@ -10,11 +10,16 @@
 angular.module('shoppingCartApp')
     .service('ProductService', ProductService);
 
-ProductService.$inject = ['$http'];
+ProductService.$inject = ['$http', '$window'];
 
-function ProductService($http) {
+function ProductService($http, $window) {
+
+	const SESSION_KEY = 'cart';
 
 	this.calculateBill = function(cart) {
+
+		//store in session storage 
+		setSession(SESSION_KEY, cart);
 
 		var sub_total = 0,
 			items_count = 0,
@@ -46,7 +51,26 @@ function ProductService($http) {
 	}
 
 	this.getChart = function() {
-		return $http.get('/mock-items.json');
+
+		var cart = getSession(SESSION_KEY);
+
+		if (cart.length) {
+			return Promise.resolve({'data': cart})
+		} else {
+			return $http.get('/mock-items.json');
+		}
+	}
+
+	var setSession = function(key, value) {
+		$window.sessionStorage.setItem(key, angular.toJson(value));
+	}
+
+	var getSession = function(key) {
+		return angular.fromJson($window.sessionStorage.getItem(key)) || [];
+	}
+
+	var deleteSession = function() {
+		$window.sessionStorage.removeItem(SESSION_KEY)
 	}
 
 }
